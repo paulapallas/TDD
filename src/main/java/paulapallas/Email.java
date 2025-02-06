@@ -1,6 +1,5 @@
 package paulapallas;
 
-public class Persona {
-    
+public class Email {
     
 }
