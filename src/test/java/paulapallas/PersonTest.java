@@ -1,7 +1,6 @@
 package paulapallas;
 
 public class PersonTest {
-    
 
 
     @Test
