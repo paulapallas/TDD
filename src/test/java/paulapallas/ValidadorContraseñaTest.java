@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class ValidadorContrasenaTest {
+public class ValidadorContraseñaTest {
     @Test
     void testContraseñaDebeTenerAlMenosOchoCaracteres() {
-        ValidadorContraseña validador = new ValidadorContraseña();
+        ValidadorContraseña validador = new ValidadorContraseña(null);
         assertFalse(validador.esValida("Ab1!")); // Demasiado corta
         assertTrue(validador.esValida("Abcd123!")); // Cumple con la longitud
     }
