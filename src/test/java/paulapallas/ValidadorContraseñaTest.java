@@ -3,15 +3,24 @@ package paulapallas;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class ValidadorContraseñaTest {
+
+    // Creamos una instancia de ValidadorContraseña antes de cada prueba
+    private ValidadorContraseña validador;
+
+    @BeforeEach
+    void setUp() {
+        // Inicializamos el validador con cualquier configuración que necesites, por ejemplo null
+        validador = new ValidadorContraseña(null); // Asegúrate de que la clase ValidadorContraseña acepta un argumento (en este caso null)
+    }
+
     @Test
     void testContraseñaDebeTenerAlMenosOchoCaracteres() {
-        ValidadorContraseña validador = new ValidadorContraseña(null);
         assertFalse(validador.esValida("Ab1!")); // Demasiado corta
         assertTrue(validador.esValida("Abcd123!")); // Cumple con la longitud
     }
@@ -45,6 +54,4 @@ public class ValidadorContraseñaTest {
     void testContraseñaDebeContenerUnCaracterEspecial(String contraseña, boolean resultadoEsperado) {
         assertEquals(resultadoEsperado, validador.esValida(contraseña));
     }
-
-    
 }
